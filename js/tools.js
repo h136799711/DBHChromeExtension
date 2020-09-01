@@ -20,4 +20,5 @@ $(function () {
 });
 function setCurrentTimestamp() {
     $("#currentTimestamp").text( (new Date()).getTime() / 1000);
+    $("#currentDateTime").text(new Date().toString());
 }
