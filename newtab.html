@@ -59,6 +59,14 @@
             <div class="d-block text-left">测试密码:  abcABC654321T-est</div>
             </div>
         </div>
+        <div class="row p-2">
+            <div class="col-12 text-left">
+                <h4>删除空白文件(c:字节):</h4>
+                <pre>find . -name "*" -type f -size 0c | xargs -n 1 rm -f</pre>
+                <h5>删除小于1000B的文件(c:字节):</h5>
+                <pre>find . -name "*" -type f -size -1000c | xargs -n 1 rm -f</pre>
+            </div>
+        </div>
     </div>
 </div>
 <script type="text/javascript" src="js/tools.js" ></script>
