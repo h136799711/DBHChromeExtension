@@ -14,11 +14,26 @@ $(function () {
     $(".j_transfer").click(function () {
         var t = $("#timestamp").val();
         var d = (new Date(t * 1000));
-
-        $(".j_datetime").html(d.toString() + "<br/>" + d.toGMTString());
+        $(".j_datetime").html(formatDate(d) + "<br/>" + d.toString() + "<br/>" + d.toGMTString());
     });
+    $(".j_transfer2").click(function () {
+        var stringTime = $("#datetime").val();
+        var timestamp2 = Date.parse(new Date(stringTime));
+        timestamp2 = timestamp2 / 1000;
+        $(".j_timestamp").html(timestamp2);
+    });
+
 });
+function formatDate(now) {
+    var year = now.getFullYear();
+    var month = now.getMonth() + 1;
+    var date = now.getDate();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
+}
 function setCurrentTimestamp() {
     $("#currentTimestamp").text( (new Date()).getTime() / 1000);
-    $("#currentDateTime").text(new Date().toString());
+    $("#currentDateTime").html(formatDate(new Date()) + "<br/>" + new Date().toString());
 }

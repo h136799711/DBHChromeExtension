@@ -14,13 +14,12 @@
             <div class="col-10 text-left">
                 <h4>TODO</h4>
                 <div class="clearfix py-2">
-                    统计书籍爬取数量每日/来源渠道
                 </div>
             </div>
             <div class="col-10 text-left">
                 <h4>工具</h4>
                 <div class="clearfix py-2">
-                    当前时间: <span id="currentDateTime"></span> <br/>时间戳 <span id="currentTimestamp"></span>
+                    北京时间: <span id="currentDateTime"></span> <br/>时间戳 <span id="currentTimestamp"></span>
                     <button class=" btn btn-primary j_stop_clock mr-1">暂停</button>
                 </div>
                 <div class="clearfix py-2">
@@ -29,7 +28,16 @@
                     <div class="float-left j_datetime">
                     </div>
                 </div>
+                <div class="clearfix py-2">
+
+                    <input value="2020-12-31 23:59:59" placeholder="2020-12-31 23:59:59" class="float-left form-control input-group-sm mr-1" id="datetime" style="width: 240px" >
+                    <button class="float-left btn btn-primary j_transfer2 mr-1">转换</button>
+                    <div class="float-left j_timestamp">
+                    </div>
+                </div>
+
             </div>
+
             <div class="col-10 text-left">
                 <h4>森森</h4>
                 <a class="btn btn-dark btn-sm mr-2 mb-2" target="_blank" href="http://master.sunsunxiaoli.com:8081/netty/channel/size">aq系列(8081)在线设备数量</a>
@@ -82,6 +90,25 @@
                 <pre>find . -name "*" -type f -size -1000c | xargs -n 1 rm -f</pre>
                 <h5>phpstorm从接口跳转到实现</h5>
                 <pre>ctrl + alt + 鼠标左键</pre>
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col-12 text-left">
+                <h4>删除空白文件(c:字节):</h4>
+                <pre>find . -name "*" -type f -size 0c | xargs -n 1 rm -f</pre>
+                <h5>删除小于1000B的文件(c:字节):</h5>
+                <pre>find . -name "*" -type f -size -1000c | xargs -n 1 rm -f</pre>
+                <h5>phpstorm从接口跳转到实现</h5>
+                <pre>ctrl + alt + 鼠标左键</pre>
+            </div>
+        </div>
+
+
+        <div class="row p-2">
+            <div class="col-12 text-left">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe allowfullscreen class="embed-responsive-item" src="https://www.qu.la/wanbenxiaoshuo/" style="width: 1025px;height: 720px;"></iframe>
+                </div>
             </div>
         </div>
     </div>
