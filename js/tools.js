@@ -1,5 +1,6 @@
 $(function () {
     setCurrentTimestamp();
+    $("#datetime").val(formatDate(new Date()));
     var timeIntervalId = setInterval(setCurrentTimestamp, 1000);
     $(".j_stop_clock").click(function () {
         if (timeIntervalId > 0) {
