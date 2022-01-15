@@ -158,6 +158,33 @@
                 <pre>find . -name "*" -type f -size -1000c | xargs -n 1 rm -f</pre>
                 <h5>phpstorm从接口跳转到实现</h5>
                 <pre>ctrl + alt + 鼠标左键</pre>
+                <h6>删除试用信息 </h6>
+                <pre>#!/bin/sh
+# reset jetbrains ide evals
+
+OS_NAME=$(uname -s)
+JB_PRODUCTS="IntelliJIdea CLion PhpStorm GoLand PyCharm WebStorm Rider DataGrip RubyMine AppCode"
+
+if [ $OS_NAME == "Darwin" ]; then
+    echo 'macOS:'
+
+    for PRD in $JB_PRODUCTS; do
+        rm -rf ~/Library/Preferences/${PRD}*/eval
+        rm -rf ~/Library/Application\ Support/JetBrains/${PRD}*/eval
+    done
+elif [ $OS_NAME == "Linux" ]; then
+    echo 'Linux:'
+
+    for PRD in $JB_PRODUCTS; do
+        rm -rf ~/.${PRD}*/config/eval
+        rm -rf ~/.config/${PRD}*/eval
+    done
+else
+    echo 'unsupport'
+    exit
+fi
+
+echo 'done.'</pre>
             </div>
         </div>
 
