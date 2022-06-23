@@ -1,7 +1,7 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "DBH-EXT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "__MSG_pluginDesc__",
   "icons":
   {
@@ -11,7 +11,7 @@
   },
   "background":
   {
-    "page": "background.html"
+    "service_worker": "background.html"
   },
   "browser_action":
   {
@@ -39,7 +39,9 @@
     "http://*/*",
     "https://*/*"
   ],
-  "web_accessible_resources": ["js/inject.js"],
+  "web_accessible_resources": [{
+    "resources": ["js/inject.js"]
+  }],
   "homepage_url": "https://www.hebidu.cn",
   "chrome_url_overrides":
   {
