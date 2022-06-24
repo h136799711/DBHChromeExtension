@@ -1,27 +1,30 @@
 let color = '#3aa757';
-
 chrome.runtime.onInstalled.addListener(() => {
     chrome.storage.sync.set({ color });
     console.log('Default background color set to %cgreen', `color: ${color}`);
 
+    async function getCurrentTab() {
+        let queryOptions = { active: true, lastFocusedWindow: true };
+        // `tab` will either be a `tabs.Tab` instance or `undefined`.
+        let [tab] = await chrome.tabs.query(queryOptions);
+        return tab;
+    }
     chrome.contextMenus.create({
         "id": "DBHSearchBaiduContextMenu",
         title: '使用百度搜索：%s', // %s表示选中的文字
         contexts: ['selection'], // 只有当选中文字时才会出现此右键菜单
-        // onclick: function(params)
-        // {
-        //     console.debug('search baidu');
-        //     // 注意不能使用location.href，因为location是属于background的window对象
-        //     chrome.tabs.create({url: 'https://www.baidu.com/s?ie=utf-8&wd=' + encodeURI(params.selectionText)});
-        // }
     });
 
     chrome.contextMenus.onClicked.addListener(
-        function(params)
+        function(info, tab)
         {
-            console.debug('search baidu');
-            // 注意不能使用location.href，因为location是属于background的window对象
-            chrome.tabs.create({url: 'https://www.baidu.com/s?ie=utf-8&wd=' + encodeURI(params.selectionText)});
+            console.debug('search baidu', info);
+            const { menuItemId } = info
+
+            if (menuItemId === 'DBHSearchBaiduContextMenu') {
+                console.debug('search baidu', info);
+                chrome.tabs.create({url: 'https://www.baidu.com/s?ie=utf-8&wd=' + encodeURI(info.selectionText)});
+            }
         }
     );
 });
