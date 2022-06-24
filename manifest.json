@@ -11,9 +11,9 @@
   },
   "background":
   {
-    "service_worker": "background.html"
+    "service_worker": "js/background.js"
   },
-  "browser_action":
+  "action":
   {
     "default_icon": "img/icon.png",
     "default_title": "__MSG_pluginTitle__",
@@ -34,13 +34,16 @@
     "tabs",
     "notifications",
     "webRequest",
-    "webRequestBlocking",
-    "storage",
-    "http://*/*",
-    "https://*/*"
+    "storage"
+  ],
+  "host_permissions": [
+    "http://*",
+    "https://*"
   ],
   "web_accessible_resources": [{
-    "resources": ["js/inject.js"]
+    "resources": ["js/inject.js"],
+    "matches": [],
+    "extension_ids": []
   }],
   "homepage_url": "https://www.hebidu.cn",
   "chrome_url_overrides":
@@ -49,8 +52,7 @@
   },
   "options_ui":
   {
-    "page": "options.html",
-    "chrome_style": true
+    "page": "options.html"
   },
   "omnibox": { "keyword" : "dbh" },
   "default_locale": "zh_CN",
