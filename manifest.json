@@ -37,8 +37,7 @@
     "storage"
   ],
   "host_permissions": [
-    "http://*",
-    "https://*"
+    "*://*/*"
   ],
   "web_accessible_resources": [{
     "resources": ["js/inject.js"],
